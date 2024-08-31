@@ -1,0 +1,22 @@
+@Exchange.API_HostAddress = http://localhost:5285
+@Token_Endpoint = http://localhost:8080/realms/ExampleTenant/protocol/openid-connect/token
+
+
+
+### Token Request
+POST {{Token_Endpoint}}
+Content-Type: application/x-www-form-urlencoded
+
+client_id=web2&client_secret=03XHPQ3wS4KC29Je826J4RIUOurCh9xg&grant_type=client_credentials
+
+
+###
+
+### Exchange Request
+GET {{Exchange.API_HostAddress}}/exchange
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer abc
+
+
+###

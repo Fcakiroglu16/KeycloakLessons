@@ -19,18 +19,25 @@ builder.Services.AddAuthentication(options =>
     {
         opts.RequireHttpsMetadata = false;
 
-        opts.Authority = "http://localhost:8080/realms/myrealm";
-        opts.ClientId = "myclient";
-        opts.ClientSecret = "vapd0UTT3emJvssqXi80KJQ2Isyot0BC";
+        opts.Authority = "http://localhost:8080/realms/InnovaTenat";
+        opts.ClientId = "web";
+        opts.ClientSecret = "sRv7DkLyfGjYbwfhSO6y2dVWBHm3kp1s";
         opts.ResponseType = "code";
-        //opts.GetClaimsFromUserInfoEndpoint = true;
+        opts.GetClaimsFromUserInfoEndpoint = true;
         opts.SaveTokens = true;
-        opts.Scope.Add("myscope myrolescope");
+        opts.Scope.Add("profile email address phone roles");
         opts.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = "preferred_username",
             RoleClaimType = "roles"
         };
+
+        //opts.Events.OnRedirectToIdentityProvider += context =>
+        //{
+        //    context.Options.Authority = "http://localhost:8080/realms/ExampleTenant";
+
+        //    return Task.CompletedTask;
+        //};
     });
 
 

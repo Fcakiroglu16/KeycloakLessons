@@ -14,7 +14,7 @@ namespace Keycloak.Web.Pages
         {
             HttpClient httpClient = new HttpClient();
             var disco = await httpClient.GetDiscoveryDocumentAsync(
-                "http://localhost:8080/realms/myrealm/.well-known/openid-configuration");
+                "http://localhost:8080/realms/techtenant/.well-known/openid-configuration");
 
             if (disco.IsError)
             {
